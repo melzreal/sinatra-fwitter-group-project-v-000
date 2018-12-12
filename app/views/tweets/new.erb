@@ -1,0 +1,9 @@
+<form action="/tweets" method="post">
+  <h2> <%= @user.username %> is Tweeting: </h2>
+<label> Create a new Tweet below </label>
+<br>
+    <input type="text" name="tweet[content]" id="content">
+<br>
+
+  <input type="submit" value="Create Tweet!">
+</form>
