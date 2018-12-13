@@ -1,8 +1,9 @@
-<%= @user.username %>
+
+<p> <%= @user.username %> is logged in. </p>
 <br>
 <br>
+<%= @tweet_maker.username %> <p>has tweeted:</p>
 <%= @tweet.content %>
-<br>
 <br>
 
 <form method="post" action="/tweets/<%=@tweet.id%>/delete">
@@ -11,8 +12,12 @@
 </form>
 <br>
 
+
+
 <a href="/tweets/new">New Tweet!</a>
 <br>
-<a href="/tweets">See all your tweets</a>
+<a href="/tweets">See all your own tweets !</a>
+<br>
+<a href="/all">See all tweets! </a>
 <br>
 <a href="/logout">Log Out</a>

@@ -2,8 +2,8 @@ class TweetsController < ApplicationController
 
 
   get '/tweets' do
-    if session.has_key?(:user_id)
 
+    if session.has_key?(:user_id)
       @user = User.find_by_id(session[:user_id])
       @tweet = Tweet.all
       erb :'/tweets/tweets'
@@ -36,8 +36,10 @@ class TweetsController < ApplicationController
 
 
   get '/tweets/:id' do
+
     if User.is_logged_in?(session)
       @tweet = Tweet.find(params[:id])
+      @tweet_maker = User.find(@tweet.user_id)
       @user = User.find(session[:user_id])
       erb :'/tweets/show_tweet'
     else
@@ -46,6 +48,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id/edit' do
+
     if User.is_logged_in?(session)
       @tweet = Tweet.find(params[:id])
       erb :'/tweets/edit_tweet'
@@ -54,13 +57,18 @@ class TweetsController < ApplicationController
     end
   end
 
+  get '/all' do
+    erb :'/tweets/all'
+  end
 
   patch '/tweets/:id' do
+    
       if User.is_logged_in?(session)
-        @tweet = Tweet.find(params[:id])
-          if !params[:tweet].empty?
-            @tweet.update(params[:tweet]).save
-            redirect to '/tweets/tweets'
+          @tweet = Tweet.find(params[:id])
+          if !params[:tweet][:content].empty?
+            @tweet.update(content: params[:tweet][:content])
+            @tweet.save
+            redirect to '/tweets'
           else
             redirect to '/tweets'
           end

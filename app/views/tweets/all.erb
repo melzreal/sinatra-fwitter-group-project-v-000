@@ -1,0 +1,16 @@
+<ul>
+  <% Tweet.all.each do |t| %>
+  <li>
+    <a href="/tweets/<%= t.id %>">
+    <p>  <%= t.content %>
+    </a>
+      <% User.all.each do |p|   %>
+      <%  if p.id == t.user_id %>
+     was tweeted by
+         <%= p.username %>
+      </p>
+      <%  end %>
+    <%   end %>
+  </li>
+
+  <% end %>
