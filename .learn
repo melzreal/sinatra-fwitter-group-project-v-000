@@ -7,6 +7,7 @@ tags:
   - MVC
 languages:
   - ruby
+<<<<<<< HEAD
 project:
   review_criteria:
     - Users can create an account
@@ -16,3 +17,8 @@ project:
     - Users can edit/delete only their tweets
     - Users can view other users tweets
     - Blank tweets are not saved
+=======
+project: true
+resources:
+  - 0
+>>>>>>> 0e5b428cca2f7b3036c2f6d24e21bb9ff289858e
