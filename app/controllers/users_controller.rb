@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 
   get '/signup' do
+    session.clear
     if session[:user_id] != nil
       redirect '/tweets'
     else
