@@ -1,0 +1,18 @@
+<%= @user.username %>
+<br>
+<br>
+<%= @tweet.content %>
+<br>
+<br>
+
+<form method="post" action="/tweets/<%=@tweet.id%>/delete">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input type="submit" value="Delete Tweet" id="submit" />
+</form>
+<br>
+
+<a href="/tweets/new">New Tweet!</a>
+<br>
+<a href="/tweets">See all your tweets</a>
+<br>
+<a href="/logout">Log Out</a>

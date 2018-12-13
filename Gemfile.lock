@@ -113,7 +113,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 4.2.5)
+  activerecord
   bcrypt
   capybara
   database_cleaner!
@@ -130,4 +130,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.16.6
+   1.17.2
